@@ -56,10 +56,11 @@ sequenceDiagram
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Should transient state be represented in a database diagram? Why, or why not?
-   > Your answer here
+   > No, transient state is temporary information and the database stores permanent data. The transient state is used to hold the users selections before the order is place, after it is placed the data is sent to the database to be stored as Purchases so transient state is no longer needed. 
 2. In the **FoodTruck** module, you are **await**ing the invocataion of all of the component functions _(e.g. sales, veggie options, etc.)_. Why must you use the `await` keyword there? Explain what happens if you remove it.
-   > Your answer here
+   > The 'await' keyword is used because the functions are asynchronous and fetch data from the API. 'await' makes sure the next step does not happen until all the data has been retrieved. If await is removed, the function will run without waiting for the asynchronous operation to complete, causing an incomplete display or incorrect information.
 3. When the user is making choices by selecting radio buttons, explain how that data is retained so that the **Purchase Combo** button works correctly.
-   > Your answer here
+   > When the user makes selections from the radio buttons that data is temporarily stored in transientState. The selectionMade function listens for changes to the radio buttons, when a button is clicked an event listener captures the selection and calls on the correct function in transientState. The object selectedMeal holds the temporary data based on the updated setEntreeChoice( same for vegetable & side). When the Purchase Combo button is clicked the placeOrder function is called which retrieves the selections from selectedMeal
 4. You used the `map()` array method in the self assessment _(at least, you should have since it is a learning objective)_. Explain why that function is helpful as a replacement for a `for..of` loop.
-   > Your answer here
+   > The 'map()' array method is helpful because it is more efficient. It automatically creates a new array with modified values which is better than using "for of" which requires manually declaring an empty array and using 
+   .push()
