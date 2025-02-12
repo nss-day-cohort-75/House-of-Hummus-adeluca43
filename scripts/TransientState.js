@@ -4,7 +4,8 @@ const selectedMeal = {
   sideId: "0",
 }
 
-// Setters for selections
+// function to store the selected entree choices
+//updates the entreeId property in selectedMeal with the chosen entree ID from the entree that is selected in foodtruck
 export const setEntreeChoice = (entreeId) => {
   selectedMeal.entreeId = entreeId;
 }

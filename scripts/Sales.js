@@ -6,15 +6,9 @@ export const Sales = async () => {
   );
 
   // Fetch all menu items
-  const entrees = await fetch("http://localhost:8088/entrees").then((res) =>
-    res.json()
-  );
-  const vegetables = await fetch("http://localhost:8088/vegetables").then(
-    (res) => res.json()
-  );
-  const sides = await fetch("http://localhost:8088/sides").then((res) =>
-    res.json()
-  );
+  const entrees = await fetch("http://localhost:8088/entrees").then((res) => res.json())
+  const vegetables = await fetch("http://localhost:8088/vegetables").then( (res) => res.json() )
+  const sides = await fetch("http://localhost:8088/sides").then((res) => res.json())
 
   let salesDivs = "<h2>Monthly Sales</h2>";
 
