@@ -31,7 +31,7 @@ export const FoodTruck = async () => {
     `
 };
 //function to store user selections
-export const selectionMade = () => {
+export const handleFoodOptions = () => {
   document.addEventListener("change", (event) => {  //listens for change event on entire document
     if (event.target.name === "entree") {           // if changed element is a radio button with the name = entree
       setEntreeChoice(event.target.value)           // calls SetEntreeChoice and passes the selected entrees's value
