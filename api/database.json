@@ -131,6 +131,11 @@
     }
   ],
   "purchases": [
-    
+    {
+      "entreeId": 1,
+      "vegetableId": 1,
+      "sideId": 1,
+      "id": 1
+    }
   ]
 }

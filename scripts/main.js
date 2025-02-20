@@ -1,20 +1,13 @@
-import { FoodTruck, selectionMade } from "./FoodTruck.js";
-import { placeOrder } from "./TransientState.js";
+import { FoodTruck, initializeEventListeners } from "./FoodTruck.js";
 
-const mainContainer = document.querySelector("#container") //main display area, where webpage is dynamically updated
+const mainContainer = document.querySelector("#container"); // Main display area
 
 const renderAllHTML = async () => {
   mainContainer.innerHTML = await FoodTruck();
 };
 
+// Initialize event listeners
+initializeEventListeners();
 
-export const purchaseMade = () => {
-  document.addEventListener("click", async (event) => {
-    if (event.target.id === "purchase") {
-      await placeOrder(); // calls placeorder from transientState when button is clicked
-    }
-  });
-};
-selectionMade() // calls function that listens for user selection of radio buttons
-purchaseMade() // calls function that listens for purchase clicks
-renderAllHTML() // loads all user interface into the container
+// Initial render
+renderAllHTML();

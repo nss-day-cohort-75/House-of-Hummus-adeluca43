@@ -1,3 +1,5 @@
+import { setVegetableChoice } from "./TransientState.js";
+
 export const Veggies = async () => {
   // Fetch vegetables from the API
   const response = await fetch("http://localhost:8088/vegetables");
@@ -6,14 +8,25 @@ export const Veggies = async () => {
   let html = "<h3>Choose Your Vegetable</h3>";
 
   // Map the vegetables into radio input buttons
-  html += vegetables.map((veggie) => {
-    return `
+  html += vegetables
+    .map((veggie) => {
+      return `
                 <div>
-                    <input type="radio" name="vegetable" value="${veggie.id}"/>${veggie.type} ($${veggie.price.toFixed(2)})
+                    <input type="radio" name="vegetable" value="${
+                      veggie.id
+                    }"/>${veggie.type} ($${veggie.price.toFixed(2)})
                 </div>
-            `
-})
+            `;
+    })
     .join("");
 
   return html;
+};
+
+export const handleVegetableSelection = () => {
+  document.addEventListener("change", (event) => {
+    if (event.target.name === "vegetable") {
+      setVegetableChoice(event.target.value); // Store vegetable selection
+    }
+  });
 };

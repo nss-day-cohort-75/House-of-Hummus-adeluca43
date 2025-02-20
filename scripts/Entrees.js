@@ -1,3 +1,5 @@
+import { setEntreeChoice } from "./TransientState.js";
+
 export const Entrees = async () => {
   // Fetch entrees from the database
   const response = await fetch("http://localhost:8088/entrees");
@@ -6,14 +8,25 @@ export const Entrees = async () => {
   let html = `<h3>Choose Your Entrée</h3>`;
 
   // Generate radio buttons for each entree
-  html += entrees.map((entree) => {
+  html += entrees
+    .map((entree) => {
       return `
             <div>
-                <input type="radio" name="entree" value="${entree.id}"/>${entree.name} ($${entree.price.toFixed(2)})
+                <input type="radio" name="entree" value="${entree.id}"/>${
+        entree.name
+      } ($${entree.price.toFixed(2)})
             </div>
         `;
     })
     .join("");
 
   return html;
+};
+
+export const handleEntreeSelection = () => {
+  document.addEventListener("change", (event) => {
+    if (event.target.name === "entree") {
+      setEntreeChoice(event.target.value); // Store entrée selection
+    }
+  });
 };

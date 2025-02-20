@@ -1,30 +1,28 @@
 const selectedMeal = {
-  entreeId: "0",
-  vegetableId: "0",
-  sideId: "0",
-}
+  entreeId: 0,
+  vegetableId: 0,
+  sideId: 0,
+};
 
 // function to store the selected entree choices
 //updates the entreeId property in selectedMeal with the chosen entree ID from the entree that is selected in foodtruck
 export const setEntreeChoice = (entreeId) => {
   selectedMeal.entreeId = entreeId;
-}
+};
 
 export const setVegetableChoice = (vegetableId) => {
   selectedMeal.vegetableId = vegetableId;
-}
+};
 
 export const setSideChoice = (sideId) => {
   selectedMeal.sideId = sideId;
-}
+};
 
-
-
-// runs after the button is clicked, retrieves user selections from selectedMeal, 
+// runs after the button is clicked, retrieves user selections from selectedMeal,
 // converts to numbers and send the order to the API
 export const placeOrder = async () => {
   const purchasedCombo = {
-    entreeId: parseInt(selectedMeal.entreeId), // storing as numbers so IDs match is database 
+    entreeId: parseInt(selectedMeal.entreeId), // storing as numbers so IDs match is database
     vegetableId: parseInt(selectedMeal.vegetableId),
     sideId: parseInt(selectedMeal.sideId),
   };
